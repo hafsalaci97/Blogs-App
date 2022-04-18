@@ -1,0 +1,134 @@
+.App {
+  text-align: center;
+}
+html{
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  font-family: "Courier New", Courier, monospace;
+  -webkit-text-size-adjust: 100%;
+  font-size: 10px;
+  -webkit-tap-highlight-color: #131313;
+  -webkit-locale: "en-AU";
+}
+body{
+  min-height: 100vh;
+  box-sizing: border-box;
+  background-color: #131313;
+  overflow-x: hidden;
+}
+.content{
+  width: 100vw;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+}
+/*Here starts the styling of the visible elements of the page.*/
+/*The first div of the content*/
+.header{
+  width: 100%;
+  padding: 0.5em;
+  box-sizing: border-box;
+  background-color: #1a1a1a;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#logo{
+  width: 18em;
+  height: 9em;
+  margin-left: -2em;
+}
+#contact{
+  color: #cecdcd;
+  margin-right: 3em;
+  font-size: 20px;
+  font-style: italic;
+}
+/*The nav bar part*/
+nav{ 
+	  width: 100%;
+    box-sizing: border-box;
+    background-color: #454545;
+	  display: flex; 
+    flex-direction: row;
+    justify-content:space-between;
+    background-image: linear-gradient(#515151, #444444, #222222);
+} 
+#ul1{ 
+  box-sizing: border-box;
+  list-style: none;
+  margin-left: -1.25em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content:space-between;
+} 
+li{
+  padding-right: -1em;
+  font-weight: bold;
+  color: white;
+  font-size: 14px;
+}
+li.border{
+  border-right: 2px solid #3e3e3e; 
+  border-color: linear-gradient(#525252, #444444, #222222);
+  line-height: 25px;
+}
+  a.active1{
+  color: #dbdbdb;
+  font-size: 0.85em;
+  font-weight: bolder;
+  text-decoration: none;
+  margin-right: 1em;
+}
+.nonactive1{
+  text-decoration: none;
+  color: #a3a3a3;
+  text-align: center;
+  font-size: 0.85em;
+  font-weight: bolder;
+  margin-right: 1em; 
+  margin-left: 1em; 
+}
+.logout{
+  text-decoration: none;
+  color: #303030;
+  text-align: center;
+  font-size: 0.85em;
+  margin-right: 2em; 
+  margin-left: 1em; 
+  position: absolute;
+  right: 5em;
+  top: 15em;
+  border: 1px solid #000000;
+  background-color: #303030;
+  font-weight: bold;
+  box-shadow: 3px 3px black;
+}
+#vertical-line{
+  width: 50px;
+  height: 50px;
+  border-left: 2px solid #3e3e3e;
+  border-color: linear-gradient(#525252, #444444, #222222);
+}
+
+/*Styling the footer*/
+.back{
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #1a1a1a;
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+}
+#back-a{
+  text-decoration: none;
+  font-size: 1.3em;
+  margin-right: 2em;
+  margin-bottom: 0.5em;
+  color: #6b6c6e;
+  font-weight: bold;
+}

@@ -1,0 +1,70 @@
+.Main-Create{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 70em;
+    height: auto;
+    margin-top: 8em;
+    margin-bottom: 8em;
+    border: 5px solid #3b3b3b;
+    background-color: #1a1a1a;
+    color: #cecdcd;
+    font-weight: bold;
+    box-shadow: 3px 3px #3b3b3b;
+}
+.Title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+h1{
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 2em;
+    text-shadow: 3px 3px #3b3b3b;
+    text-decoration: none;
+}
+#title{
+    border: none;
+    background: transparent;
+    border-bottom: 2px solid #fff;
+    outline: none;
+    border-radius:0%;
+    width: 40em;
+    color: #cecdcd;
+}
+textarea{
+    width: 40em;
+    max-width: 40em;
+    min-width: 40em;
+    height: auto;
+    height: 15em;
+    min-height: 15em;
+}
+::placeholder {
+    font-style: italic;
+    letter-spacing: 1px;
+}
+.Select-Div{
+    display: block;
+    position: relative;
+    margin-left: 8em;
+    margin-bottom: 2em;
+    align-self: flex-start;
+}
+
+select{
+    margin-left: 2em; 
+    width: 10em;
+    color: #cecdcd;
+    outline: none;
+    border: 1px solid var(--select-border);
+    border-radius: 0.25em;
+    padding: 0.5em 1em;
+    font-size: 1.25rem;
+    cursor: pointer;
+    line-height: 1.1;
+    background-color: #3b3b3b;
+    background-image: linear-gradient(to top, #3b3b3b, #3b3b3b 33%);
+}
