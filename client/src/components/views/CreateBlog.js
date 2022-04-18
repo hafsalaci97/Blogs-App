@@ -9,6 +9,7 @@ const CreateBlog =()=>{
     const categories = ["Food", "Music", "Sport"];
     const [feErrors, setFeErrors] = useState("");
     const [beErrors, setBeErrors] = useState("");
+    const [loginError, setLoginError] = useState("");
     const [form, setForm] = useState({
         photo: "",
         title: "",
@@ -48,18 +49,23 @@ const CreateBlog =()=>{
                 navigate("/");
             })
             .catch(err => {
-                console.log(err.response.data);
+                console.log(err.response.data.verified);
+                setLoginError(err.response.data.verified)
                 setBeErrors(err.response.data.err.errors.title.kind);
+                console.log(loginError);
                 navigate("/new");
             });
         }
     }
-    
+    console.log(loginError);
     return(
         <div className="Main-Create">
             <form onSubmit={onSubmitHandler}>
                 <div className="Title">
                     <h1>TYPE YOUR THOUGHTS BELOW!</h1>
+                    {
+                        loginError === false ? <span className="red-span" style={{fontSize: "16px", marginBottom: "2em"}}>You MUST login first!</span> : ''
+                    }
                     <div className="Select-Div">
                         <label>Choose your blog category:</label>
                         <select name="categories" className="Options" onChange={onChangeHandler}>
