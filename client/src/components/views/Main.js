@@ -96,8 +96,8 @@ const Main = () =>{
                                             {
                                                 blog.createdBy.username === loggedUser.username ?
                                                 (<div>
-                                                    <button onClick={()=>navigate(`/edit/${blog._id}`)}>EDIT</button>
-                                                    <button onClick={()=>onClickDelete(blog._id)}>DELETE</button>
+                                                    <button className="Edit-Btn" onClick={()=>navigate(`/edit/${blog._id}`)}>EDIT</button>
+                                                    <button className="Delete-Btn" onClick={()=>onClickDelete(blog._id)}>DELETE</button>
                                                 </div>
                                                 ) :
                                                 null

@@ -46,43 +46,46 @@ const TopLiked = ()=>{
                 blogs.map((blog, index)=>{
                     return (
                         <div key={index} className="Blogs">
-                            <div>
-                                SET IMAGE HERE
+                        <div className="One-Blog">
+                            <div className="Title-Div">
+                                <Link to ={`/${blog._id}`} style={{textDecoration: "none"}}><h1 className="Link-H1">{blog.title}</h1></Link>
+                                
                             </div>
-                            <div>
-                                <div>
-                                    <Link to ={`/${blog._id}`}><h3>{blog.title}</h3></Link>
-                                    <p>Category: {blog.categories}</p>
-                                </div>
-                                <div>
-                                    {
-                                        blog.createdBy.username === loggedUser.username ?
+                            <p className="category">Blog category: {blog.categories}</p>
+                            <div className="author-likes">  
+                                <div className="author">
+                                    <div> 
+                                        {
+                                            blog.createdBy.username === loggedUser.username ?
                                             (
-                                                <p>Author: YOU</p>
+                                                <p>Blog created by: YOU |</p>
                                             ) :
                                             (
-                                                <p>Author: {blog.createdBy.username}</p>
+                                                <p>Blog created by: {blog.createdBy.username} <span className="Line"> | </span> </p>
                                             ) 
-                                    }
+                                        }
+                                    </div>
                                     <p>Creation Date: {moment(`${blog.createdAt}`).format('l')}</p>
-                                    <div>
-                                        <h4>{blog.likes} Likes</h4>
-                                    </div>
                                 </div>
-                                {
-                                    blog.createdBy.username === loggedUser.username ?
-                                    (<div>
-                                        <button onClick={()=>navigate(`/edit/${blog._id}`)}>EDIT</button>
-                                        <button onClick={()=>onClickDelete(blog._id)}>DELETE</button>
-                                    </div>
-                                    ) :
-                                    null
-                                }
-                                <div className="DESC">
-                                    <p id="descript">{blog.desc}</p>
+                                <div className="Likes">
+                                    <p>{blog.likes} Like(s)</p>
                                 </div>
                             </div>
+                            
+                            {
+                                blog.createdBy.username === loggedUser.username ?
+                                (<div>
+                                    <button className="Edit-Btn" onClick={()=>navigate(`/edit/${blog._id}`)}>EDIT</button>
+                                    <button className="Delete-Btn" onClick={()=>onClickDelete(blog._id)}>DELETE</button>
+                                </div>
+                                ) :
+                                null
+                            }
+                            <div className="DESC">
+                                <p id="descript">{blog.desc}</p>
+                            </div>
                         </div>
+                    </div>
                     );
                 })
             }

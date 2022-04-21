@@ -13,6 +13,7 @@ const Detail =()=>{
     const [detail, setDetail] = useState([]);
     const [loggedUser, setLoggedUser] = useState({});
     const [likes, setLikes] = useState(detail.likes);
+    const [disable, setDisable] = useState(false);
 
     useEffect(() => {
         axios.get(`http://localhost:8000/api/blogs/${id}`)
@@ -36,6 +37,8 @@ const Detail =()=>{
         useEffect(() => {
         axios.patch(`http://localhost:8000/api/blogs/${id}/update`, {
             likes: likes
+        },{
+            withCredentials: true
         })
             .then((res) => {
                 console.log(res.data.results);
@@ -47,7 +50,11 @@ const Detail =()=>{
     console.log(likes);
 
     const increment = () =>{
+        console.log(disable);
         setLikes(likes+1);
+        // window.location.reload(false);
+        setDisable(!disable);
+        console.log(disable);
     }
 
     useEffect(() => {
@@ -99,7 +106,7 @@ const Detail =()=>{
                     <div className="Likes">
                         <p>{likes} Like(s)</p>
                     </div>
-                    <button className="Like-Btn" onClick={()=>increment(detail._id)}>LIKE</button>
+                    <button className="Like-Btn" onClick={()=>increment(detail._id)} disabled={disable}>LIKE</button>
                 </div>
             </div>
             {

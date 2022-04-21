@@ -10,6 +10,6 @@ module.exports = app =>{
     app.get("/api/blogs/:id", BlogController.getOneBlog);
     app.post("/api/blogs/new", authenticate, BlogController.createBlog);
     app.get("/api/blogsbyuser/:username", authenticate, BlogController.getAllBlogsByUser);
-    app.patch("/api/blogs/:id/update", BlogController.updateBlog);
+    app.patch("/api/blogs/:id/update", authenticate, BlogController.updateBlog);
     app.delete("/api/blogs/:id/delete", BlogController.deleteBlog);
 }

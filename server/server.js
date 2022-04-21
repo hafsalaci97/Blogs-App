@@ -16,5 +16,7 @@ const AllBlogRoutes = require("./routes/blog.routes");
 AllBlogRoutes(app);
 const AllUserRoutes = require("./routes/user.routes");
 AllUserRoutes(app);
+app.use(function(req, res, next){
 
+});
 app.listen(process.env.MY_PORT, ()=>console.log(`Listen on port: ${process.env.MY_PORT}`));

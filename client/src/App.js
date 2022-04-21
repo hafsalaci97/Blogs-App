@@ -14,8 +14,22 @@ import Music from "./components/views/category/Music";
 import Sport from "./components/views/category/Sport";
 import TopLiked from "./components/views/category/TopLiked";
 
+
 function App() {
   const [tab, setTab] = useState("Login");
+  const [loggedUser, setLoggedUser] = useState({});
+  const [isLogged, setIsLogged] = useState(true);
+  useEffect(() => {
+    axios.get("http://localhost:8000/api/users",
+        {withCredentials: true}
+        )
+        .then(res => {
+            console.log(res.data.username);
+            setLoggedUser(res.data)
+        })
+        .catch(err => console.log(err))
+}, [])
+
   const logout=()=>{
 
     axios.post("http://localhost:8000/api/users/logout", 
@@ -26,6 +40,7 @@ function App() {
     .then(res => {
       console.log(res);
         console.log(res.data);
+        setIsLogged(false);
     })
     .catch((err)=>{
         console.log(err);
@@ -44,7 +59,7 @@ function App() {
                   <li className="border"><Link to="/new" className="nonactive1">{`WRITE BLOG>>`}</Link></li>
                   <li className="border"><Link to="/registration" className="nonactive1">{`REGISTRATION>>`}</Link></li>
                     <li className="border"><Link to="/login" className="nonactive1">{`LOGIN`}</Link></li>
-                    <Link to="/" className="logout"><button className="border" style={{backgroundColor: "#303030", color: "#bdbdbd", fontWeight: "bold"}} onClick={logout}>{`LOGOUT`}</button></Link> 
+                    <Link to="/" className="logout"><button className="border" style={{backgroundColor: "#303030", color: "#bdbdbd", fontWeight: "bold"}} onClick={logout}>{`LOGOUT`}</button></Link>
               </ul>
               <div id="vertical-line"></div>
           </nav>
